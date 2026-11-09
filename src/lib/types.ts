@@ -1,0 +1,4 @@
+export type Ingredient = {id:string; name:string; amount:number; unit:'lb'|'oz'|'cup'|'tbsp'|'tsp'|'each'|'can'; category:'Produce'|'Meat'|'Canned & jars'|'Dairy'|'Pantry'|'Frozen'|'Bakery'; packageSize?:number; note?:string};
+export type Recipe = {id:string; title:string; subtitle:string; emoji:string; category:string; hours:number; servings:number; color:string; ingredients:Ingredient[]; prep:string[]; finish:string; storage?:string; tags:string[]};
+export type PlannedMeal = {key:string; recipeId:string; servings:number; day:number; status:'planned'|'refrigerated'|'frozen'|'thawing'|'cooked'};
+export type AppData = {meals:PlannedMeal[]; shoppingDone:string[]; prepDone:string[]; favorites:string[]; excluded:string[]; cookedAt:Record<string,string>; count:number; defaultServings:number; noRepeatDays:number; week:number};

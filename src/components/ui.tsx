@@ -1,0 +1,6 @@
+import type {ButtonHTMLAttributes,ReactNode} from 'react';
+import {Check} from 'lucide-react';
+import {cn} from '../lib/utils';
+export function Button({children,variant='primary',className='',...props}:ButtonHTMLAttributes<HTMLButtonElement>&{variant?:'primary'|'light'|'outline'|'ghost'}){return <button className={cn('btn',variant==='primary'?'btn-primary':variant==='light'?'btn-light':variant==='outline'?'btn-outline':'hover:bg-black/5',className)} {...props}>{children}</button>}
+export function Card({children,className=''}:{children:ReactNode;className?:string}){return <section className={cn('surface',className)}>{children}</section>}
+export function CheckToggle({checked,onChange,label,sub}:{checked:boolean;onChange:(v:boolean)=>void;label:string;sub?:string}){return <button type="button" aria-pressed={checked} onClick={()=>onChange(!checked)} className="flex w-full items-start gap-3 py-3 text-left"><span className={cn('mt-0.5 grid h-6 w-6 shrink-0 place-items-center rounded-lg border-2',checked?'border-pine bg-pine text-white':'border-[#cdd8cf]')}>{checked&&<Check size={15} strokeWidth={3}/>}</span><span className="flex-1"><span className={cn('block font-medium',checked&&'text-muted line-through')}>{label}</span>{sub&&<span className="text-xs text-muted">{sub}</span>}</span></button>}
