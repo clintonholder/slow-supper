@@ -73,7 +73,7 @@ export default function App(){
   if(sortBy==='recently-cooked')return (data.cookedAt[b.id]||'').localeCompare(data.cookedAt[a.id]||'')||a.title.localeCompare(b.title);
   return (recipeOrder.get(b.id)??0)-(recipeOrder.get(a.id)??0);
  });
- const addToPlan=(id:string)=>{setData(d=>({...d,meals:[...d.meals,{key:'meal-'+Date.now()+'-'+id,recipeId:id,day:d.meals.length,servings:d.defaultServings,status:'planned'}],shoppingDone:[],prepDone:[]}));setNotice('Added to this week’s plan')};
+ const addToPlan=(id:string)=>{setData(d=>({...d,meals:[...d.meals,{key:'meal-'+Date.now()+'-'+id,recipeId:id,day:d.meals.length,servings:d.defaultServings,status:'planned'}],shoppingDone:[],prepDone:[]}));};
  const startCooking=(id:string)=>{setDetail(null);setCook(id);setStepsDone([])};
  const completeCooking=(id:string)=>{setCookCounts(d=>({...d,[id]:Math.max(d[id]||0,data.cookedAt[id]?1:0)+1}));setData(d=>({...d,cookedAt:{...d.cookedAt,[id]:new Date().toISOString()}}));setCook(null);setStepsDone([]);setNotice('Dinner complete! Added to your cooking history.')};
  const deleteRecipe=(id:string)=>{setData(d=>({...d,excluded:[...new Set([...d.excluded,id])],favorites:d.favorites.filter(x=>x!==id),meals:d.meals.filter(m=>m.recipeId!==id),shoppingDone:[],prepDone:[]}));setConfirmDelete(null);setDetail(null);setNotice('Recipe removed. Restore it in Settings.')};
