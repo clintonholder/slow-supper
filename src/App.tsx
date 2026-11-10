@@ -49,6 +49,11 @@ const photoByRecipe:Record<string,string>={
   "bbq-chicken-sandwich": "/recipes/bbq-chicken-sandwich.webp",
   "veggie-lasagna": "/recipes/veggie-lasagna.webp",
   "shrimp-orzo": "/recipes/shrimp-orzo.webp",
+  "greek-lemon-chicken": "/recipes/greek-lemon-chicken.webp",
+  "mediterranean-beef": "/recipes/mediterranean-beef.webp",
+  "greek-chicken-chickpeas": "/recipes/greek-chicken-chickpeas.webp",
+  "moroccan-apricot-chicken": "/recipes/moroccan-apricot-chicken.webp",
+  "mediterranean-white-bean": "/recipes/mediterranean-white-bean.webp",
 };
 const art=(r:Recipe,large=false)=><div className={large?"relative h-52 w-full overflow-hidden rounded-2xl":"relative h-20 w-20 shrink-0 overflow-hidden rounded-2xl"} style={{background:r.color}}><div className="absolute inset-0 grid place-items-center text-5xl">{r.emoji}</div>{photoByRecipe[r.id]&&<img src={photoByRecipe[r.id]} alt={r.title} loading="lazy" decoding="async" className="relative h-full w-full object-cover" onError={e=>{e.currentTarget.style.display='none'}}/>}</div>;
 export default function App(){
