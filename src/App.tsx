@@ -42,7 +42,7 @@ const photoByRecipe:Record<string,string>={
   "turkey-chili": "/recipes/turkey-chili.webp",
   "mushroom-chicken-pasta": "/recipes/mushroom-chicken-pasta.webp",
   "lime-chicken-tacos": "/recipes/lime-chicken-tacos.webp",
-  "apple-slaw-pork": "/recipes/apple-slaw-pork.webp",
+  "apple-slaw-pork": "/recipes/apple-slaw-pork-shredded-v2.webp",
   "cajun-sausage-rice": "/recipes/cajun-sausage-rice.webp",
   "caprese-chicken": "/recipes/caprese-chicken.webp",
   "coconut-chickpea-curry": "/recipes/coconut-chickpea-curry.webp",
