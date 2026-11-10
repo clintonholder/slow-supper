@@ -7,24 +7,24 @@ import {Button,Card,CheckToggle} from './components/ui';
 const initial:AppData={meals:['beef-stew','ranch-chicken','pulled-pork','italian-chicken','tortilla-soup'].map((recipeId,day)=>({key:'meal-'+day,recipeId,day,servings:6,status:'planned' as const})),shoppingDone:[],prepDone:[],favorites:[],excluded:[],cookedAt:{},count:5,defaultServings:6,noRepeatDays:21,week:1};
 const load=():AppData=>{try{return {...initial,...JSON.parse(localStorage.getItem('slow-supper-v1')||'{}')}}catch{return initial}};
 const groups=['Produce','Meat','Canned & jars','Dairy','Pantry','Frozen','Bakery'];
-// Public, externally hosted food photography; gracefully fall back to the recipe emoji.
+// Original bundled recipe photos, served locally by Vercel.
 const photoByRecipe:Record<string,string>={
- "beef-stew": "https://images.pexels.com/photos/5531292/pexels-photo-5531292.jpeg?auto=compress&cs=tinysrgb&w=720",
- "ranch-chicken": "https://images.pexels.com/photos/39070796/pexels-photo-39070796.jpeg?auto=compress&cs=tinysrgb&w=720",
- "pulled-pork": "https://images.unsplash.com/photo-1648437595587-e6a8b0cdf1f9?auto=format&fit=crop&w=720&q=75",
- "italian-chicken": "https://images.pexels.com/photos/4294500/pexels-photo-4294500.jpeg?auto=compress&cs=tinysrgb&w=720",
- "tortilla-soup": "https://images.pexels.com/photos/29538431/pexels-photo-29538431.jpeg?auto=compress&cs=tinysrgb&w=720",
- "bbq-chicken": "https://images.pexels.com/photos/8392454/pexels-photo-8392454.jpeg?auto=compress&cs=tinysrgb&w=720",
- "salsa-verde": "https://images.unsplash.com/photo-1648437595587-e6a8b0cdf1f9?auto=format&fit=crop&w=720&q=75",
- "pot-roast": "https://images.pexels.com/photos/34636420/pexels-photo-34636420.jpeg?auto=compress&cs=tinysrgb&w=720",
- "chicken-cacciatore": "https://images.pexels.com/photos/4294500/pexels-photo-4294500.jpeg?auto=compress&cs=tinysrgb&w=720",
- "pork-carnitas": "https://images.unsplash.com/photo-1648437595587-e6a8b0cdf1f9?auto=format&fit=crop&w=720&q=75",
- "chili": "https://images.pexels.com/photos/15881322/pexels-photo-15881322.jpeg?auto=compress&cs=tinysrgb&w=720",
- "lemon-chicken": "https://images.pexels.com/photos/8392454/pexels-photo-8392454.jpeg?auto=compress&cs=tinysrgb&w=720",
- "pork-apple": "https://images.pexels.com/photos/17628617/pexels-photo-17628617.jpeg?auto=compress&cs=tinysrgb&w=720",
- "white-chicken-chili": "https://images.pexels.com/photos/29538431/pexels-photo-29538431.jpeg?auto=compress&cs=tinysrgb&w=720",
- "italian-beef": "https://images.pexels.com/photos/34636420/pexels-photo-34636420.jpeg?auto=compress&cs=tinysrgb&w=720",
- "honey-garlic": "https://images.pexels.com/photos/8392454/pexels-photo-8392454.jpeg?auto=compress&cs=tinysrgb&w=720"
+  "tortilla-soup": "/recipes/tortilla-soup.webp",
+  "pork-apple": "/recipes/pork-apple.webp",
+  "chicken-cacciatore": "/recipes/chicken-cacciatore.webp",
+  "ranch-chicken": "/recipes/ranch-chicken.webp",
+  "pork-carnitas": "/recipes/pork-carnitas.webp",
+  "pulled-pork": "/recipes/pulled-pork.webp",
+  "chili": "/recipes/chili.webp",
+  "white-chicken-chili": "/recipes/white-chicken-chili.webp",
+  "honey-garlic": "/recipes/honey-garlic.webp",
+  "lemon-chicken": "/recipes/lemon-chicken.webp",
+  "salsa-verde": "/recipes/salsa-verde.webp",
+  "beef-stew": "/recipes/beef-stew.webp",
+  "italian-chicken": "/recipes/italian-chicken.webp",
+  "italian-beef": "/recipes/italian-beef.webp",
+  "pot-roast": "/recipes/pot-roast.webp",
+  "bbq-chicken": "/recipes/bbq-chicken.webp",
 };
 const art=(r:Recipe,large=false)=><div className={large?"relative h-52 w-full overflow-hidden rounded-2xl":"relative h-20 w-20 shrink-0 overflow-hidden rounded-2xl"} style={{background:r.color}}><div className="absolute inset-0 grid place-items-center text-5xl">{r.emoji}</div><img src={photoByRecipe[r.id]} alt={r.title} loading="lazy" decoding="async" className="relative h-full w-full object-cover" onError={e=>{e.currentTarget.style.display='none'}}/></div>;
 export default function App(){
