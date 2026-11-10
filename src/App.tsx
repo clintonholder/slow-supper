@@ -25,6 +25,21 @@ const photoByRecipe:Record<string,string>={
   "italian-beef": "/recipes/italian-beef.webp",
   "pot-roast": "/recipes/pot-roast.webp",
   "bbq-chicken": "/recipes/bbq-chicken.webp",
+  "lemon-herb-veg": "/recipes/lemon-herb-veg.webp",
+  "ginger-beef-broccoli": "/recipes/ginger-beef-broccoli.webp",
+  "lemon-salmon": "/recipes/lemon-salmon.webp",
+  "turkey-chili": "/recipes/turkey-chili.webp",
+  "mushroom-chicken-pasta": "/recipes/mushroom-chicken-pasta.webp",
+  "lime-chicken-tacos": "/recipes/lime-chicken-tacos.webp",
+  "sweet-potato-black-beans": "/recipes/sweet-potato-black-beans.webp",
+  "apple-slaw-pork": "/recipes/apple-slaw-pork.webp",
+  "cajun-sausage-rice": "/recipes/cajun-sausage-rice.webp",
+  "caprese-chicken": "/recipes/caprese-chicken.webp",
+  "garden-frittata": "/recipes/garden-frittata.webp",
+  "coconut-chickpea-curry": "/recipes/coconut-chickpea-curry.webp",
+  "bbq-chicken-sandwich": "/recipes/bbq-chicken-sandwich.webp",
+  "veggie-lasagna": "/recipes/veggie-lasagna.webp",
+  "shrimp-orzo": "/recipes/shrimp-orzo.webp",
 };
 const art=(r:Recipe,large=false)=><div className={large?"relative h-52 w-full overflow-hidden rounded-2xl":"relative h-20 w-20 shrink-0 overflow-hidden rounded-2xl"} style={{background:r.color}}><div className="absolute inset-0 grid place-items-center text-5xl">{r.emoji}</div><img src={photoByRecipe[r.id]} alt={r.title} loading="lazy" decoding="async" className="relative h-full w-full object-cover" onError={e=>{e.currentTarget.style.display='none'}}/></div>;
 export default function App(){
